@@ -27,7 +27,9 @@ class EnsureInstalled
     private function instalado(): bool
     {
         try {
-            return Schema::hasTable('psicologas') && Psicologa::query()->exists();
+            $tabla = (new Psicologa)->getTable();
+
+            return Schema::hasTable($tabla) && Psicologa::query()->exists();
         } catch (Throwable) {
             return false;
         }

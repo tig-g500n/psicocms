@@ -26,7 +26,10 @@
             </div>
         </div>
 
-        @php($fotoHero = $perfil->foto ? asset($perfil->foto) : imagen_web('hero'))
+        @php
+            $fotoPerfil = $perfil->foto && is_file(public_path($perfil->foto)) ? asset($perfil->foto) : null;
+            $fotoHero = \App\Models\ImagenWeb::personalizadaUrl('hero') ?: ($fotoPerfil ?: imagen_web('hero'));
+        @endphp
         <div class="pp-hero__figura {{ $fotoHero ? '' : 'pp-hero__figura--placeholder' }}">
             @if ($fotoHero)
                 <img src="{{ $fotoHero }}" alt="{{ $nombreCompleto }}">

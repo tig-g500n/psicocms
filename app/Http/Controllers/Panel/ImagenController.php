@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ImagenWeb;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 
@@ -38,17 +39,13 @@ class ImagenController extends Controller
             return back()->with('error', $validador->errors()->first('imagen'));
         }
 
-        $directorio = config('imagenes.directorio_subidas');
-        $nombre = $clave.'_'.uniqid().'.'.$request->file('imagen')->getClientOriginalExtension();
-        $request->file('imagen')->move(public_path($directorio), $nombre);
-        $ruta = $directorio.'/'.$nombre;
+        $archivo = $request->file('imagen');
 
-        $anterior = ImagenWeb::where('clave', $clave)->value('ruta');
-        if ($anterior && is_file(public_path($anterior))) {
-            @unlink(public_path($anterior));
-        }
-
-        ImagenWeb::updateOrCreate(['clave' => $clave], ['ruta' => $ruta]);
+        ImagenWeb::updateOrCreate(['clave' => $clave], [
+            'ruta' => $archivo->getClientOriginalName(),
+            'mime' => $archivo->getMimeType(),
+            'contenido_base64' => base64_encode(file_get_contents($archivo->getRealPath())),
+        ]);
 
         return back()->with('exito', 'Imagen actualizada.');
     }
@@ -57,13 +54,22 @@ class ImagenController extends Controller
     {
         $registro = ImagenWeb::where('clave', $clave)->first();
 
-        if ($registro) {
-            if (is_file(public_path($registro->ruta))) {
-                @unlink(public_path($registro->ruta));
-            }
-            $registro->delete();
-        }
+        $registro?->delete();
 
         return back()->with('exito', 'Imagen restablecida a la de por defecto.');
+    }
+
+    public function mostrar(string $clave): Response
+    {
+        $imagen = ImagenWeb::where('clave', $clave)->firstOrFail();
+        abort_unless($imagen->tieneContenido(), 404);
+
+        $contenido = base64_decode($imagen->contenido_base64, true);
+        abort_if($contenido === false, 404);
+
+        return response($contenido, 200, [
+            'Content-Type' => $imagen->mime,
+            'Cache-Control' => 'public, max-age=3600',
+        ]);
     }
 }

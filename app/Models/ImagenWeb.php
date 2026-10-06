@@ -35,15 +35,24 @@ class ImagenWeb extends Model
 
     public static function overrides(): array
     {
-        return static::pluck('ruta', 'clave')->all();
+        return static::query()
+            ->get()
+            ->mapWithKeys(fn (self $imagen) => $imagen->tieneContenido()
+                ? [$imagen->clave => route('imagenes.web', $imagen->clave)]
+                : [])
+            ->all();
     }
 
     public static function ruta(string $clave): ?string
     {
-        $override = static::where('clave', $clave)->value('ruta');
+        $override = static::where('clave', $clave)->first();
 
-        if ($override && is_file(public_path($override))) {
-            return $override;
+        if ($override?->tieneContenido()) {
+            return $override->urlPersonalizada();
+        }
+
+        if ($override?->ruta && is_file(public_path($override->ruta))) {
+            return $override->ruta;
         }
 
         return static::defecto($clave);
@@ -53,6 +62,27 @@ class ImagenWeb extends Model
     {
         $ruta = static::ruta($clave);
 
-        return $ruta ? asset($ruta) : null;
+        if (! $ruta) {
+            return null;
+        }
+
+        return str_starts_with($ruta, 'http://') || str_starts_with($ruta, 'https://')
+            ? $ruta
+            : asset($ruta);
+    }
+
+    public function tieneContenido(): bool
+    {
+        return filled($this->contenido_base64) && filled($this->mime);
+    }
+
+    public function urlPersonalizada(): ?string
+    {
+        return $this->tieneContenido() ? route('imagenes.web', $this->clave) : null;
+    }
+
+    public static function personalizadaUrl(string $clave): ?string
+    {
+        return static::where('clave', $clave)->first()?->urlPersonalizada();
     }
 }

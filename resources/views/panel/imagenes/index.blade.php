@@ -19,12 +19,12 @@
                 @foreach ($grupo['items'] as $item)
                     @php
                         $clave = $item['clave'];
-                        $personalizada = isset($overrides[$clave]) && is_file(public_path($overrides[$clave]));
-                        $ruta = $personalizada ? $overrides[$clave] : $item['defecto'];
+                        $personalizada = isset($overrides[$clave]);
+                        $urlImagen = $personalizada ? $overrides[$clave] : asset($item['defecto']);
                     @endphp
                     <article class="img-slot {{ $personalizada ? 'is-custom' : '' }}">
                         <div class="img-slot__preview">
-                            <img src="{{ asset($ruta) }}" alt="{{ $item['label'] }}" loading="lazy">
+                            <img src="{{ $urlImagen }}" alt="{{ $item['label'] }}" loading="lazy">
                             <span class="img-slot__badge {{ $personalizada ? 'is-custom' : '' }}">
                                 <i class="fa-solid {{ $personalizada ? 'fa-circle-check' : 'fa-image' }}"></i>
                                 {{ $personalizada ? 'Personalizada' : 'Por defecto' }}
@@ -63,6 +63,6 @@
 
     <p class="imgs__nota">
         <i class="fa-solid fa-circle-info"></i>
-        Formatos admitidos: JPG, PNG o WEBP · máximo 4 MB. Estas imágenes se mostrarán en tu web pública cuando esté publicada.
+        Formatos admitidos: JPG, PNG o WEBP · máximo 8 MB. Estas imágenes se mostrarán en tu web pública cuando esté publicada.
     </p>
 @endsection

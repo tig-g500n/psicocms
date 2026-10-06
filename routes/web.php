@@ -32,6 +32,7 @@ Route::get('preguntas-frecuentes', [PublicoController::class, 'faq'])->name('pub
 Route::get('contacto', [PublicoController::class, 'contacto'])->name('publico.contacto');
 Route::get('blog', [PublicoController::class, 'blog'])->name('publico.blog');
 Route::get('blog/{articulo:slug}', [PublicoController::class, 'articulo'])->name('publico.articulo');
+Route::get('media/web/{clave}', [ImagenController::class, 'mostrar'])->name('imagenes.web');
 
 Route::get('reservas/dias', [ReservaController::class, 'dias'])->name('reservas.dias');
 Route::get('reservas/horas', [ReservaController::class, 'horas'])->name('reservas.horas');

@@ -44,6 +44,7 @@ WORKDIR /var/www/html
 COPY --from=vendor /app /var/www/html
 COPY --from=assets /app/public/build /var/www/html/public/build
 COPY docker/apache-site.conf /etc/apache2/sites-available/000-default.conf
+COPY docker/uploads.ini /usr/local/etc/php/conf.d/uploads.ini
 COPY docker/start-render.sh /usr/local/bin/start-render
 
 RUN chmod +x /usr/local/bin/start-render \

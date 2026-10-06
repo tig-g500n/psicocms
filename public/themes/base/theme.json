@@ -1,0 +1,12 @@
+{
+    "nombre": "Cálido",
+    "descripcion": "Tonos tierra y beige, acogedor y cercano. El tema original de PsicoCMS.",
+    "primario": "#976147",
+    "secundario": "#c0a090",
+    "acento": "#3b5a7a",
+    "fondo": "#f6f1ee",
+    "superficie": "#ffffff",
+    "texto": "#4a3f39",
+    "radio": "1.4rem",
+    "fuente": "Lexend"
+}

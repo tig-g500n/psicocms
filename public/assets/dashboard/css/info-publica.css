@@ -1,0 +1,206 @@
+/* Tabs */
+.ip-tabs {
+    display: flex;
+    gap: .4rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.4rem;
+    border-bottom: .1rem solid var(--dash-border);
+}
+
+.ip-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: .8rem;
+    padding: 1.2rem 1.8rem;
+    border: none;
+    background: transparent;
+    color: var(--dash-text-soft);
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: .3rem solid transparent;
+    margin-bottom: -.1rem;
+}
+
+.ip-tab.is-active {
+    color: var(--dash-primary);
+    border-bottom-color: var(--dash-primary);
+}
+
+.ip-panel[hidden] {
+    display: none;
+}
+
+/* Foto */
+.ip-foto {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 1.6rem;
+    border: .2rem dashed var(--dash-border);
+    border-radius: 1.4rem;
+    cursor: pointer;
+    transition: border-color .15s ease, background .15s ease;
+}
+
+.ip-foto:hover {
+    border-color: var(--dash-primary);
+    background: var(--dash-primary-soft);
+}
+
+.ip-foto__preview {
+    width: 8rem;
+    height: 8rem;
+    flex-shrink: 0;
+    border-radius: 1rem;
+    background: var(--dash-bg);
+    color: var(--dash-text-soft);
+    display: grid;
+    place-items: center;
+    font-size: 2.2rem;
+    overflow: hidden;
+}
+
+.ip-foto__preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Filas repetibles */
+.rep {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 1.6rem;
+}
+
+.rep-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.rep-row__fields {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 1rem;
+}
+
+.rep-row__fields--serv {
+    grid-template-columns: 1fr 1.6fr 1fr auto;
+    align-items: center;
+}
+
+.rep-row__fields--plan {
+    grid-template-columns: 1fr 1fr 1fr 1.4fr;
+}
+
+.rep-row__remove {
+    width: 4.2rem;
+    height: 4.2rem;
+    flex-shrink: 0;
+    border: .1rem solid var(--dash-border);
+    background: var(--dash-surface);
+    color: var(--dash-danger);
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.rep-row__remove:hover {
+    background: var(--dash-danger-soft);
+}
+
+.ip-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .rep-row__fields,
+    .rep-row__fields--serv,
+    .rep-row__fields--plan {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== Selector de iconos (servicios) ===== */
+.icono-picker {
+    position: relative;
+}
+
+.icono-picker__btn {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    cursor: pointer;
+    text-align: left;
+}
+
+.icono-picker__btn [data-icono-preview] {
+    color: var(--dash-primary);
+    font-size: 1.7rem;
+}
+
+.icono-picker__label {
+    flex: 1;
+    font-size: 1.4rem;
+    color: var(--dash-text-soft);
+}
+
+.icono-picker__chev {
+    font-size: 1.1rem;
+    color: var(--dash-text-soft);
+}
+
+.icono-picker__panel {
+    position: absolute;
+    z-index: 30;
+    top: calc(100% + .4rem);
+    left: 0;
+    width: 27rem;
+    max-width: 80vw;
+    max-height: 22rem;
+    overflow-y: auto;
+    padding: 1rem;
+    background: var(--dash-surface);
+    border: .1rem solid var(--dash-border);
+    border-radius: var(--dash-radius);
+    box-shadow: var(--dash-shadow-md);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: .5rem;
+}
+
+.icono-opcion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    border: none;
+    border-radius: .8rem;
+    background: var(--dash-bg);
+    color: var(--dash-text);
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: background .12s, color .12s;
+}
+
+.icono-opcion:hover {
+    background: var(--dash-primary-soft);
+    color: var(--dash-primary);
+}
+
+.icono-opcion.is-sel {
+    background: var(--dash-primary);
+    color: #fff;
+}
+
+.icono-picker__panel[hidden] {
+    display: none;
+}

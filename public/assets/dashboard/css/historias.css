@@ -1,0 +1,167 @@
+.hist {
+    display: grid;
+    grid-template-columns: 40rem 1fr;
+    gap: 2.4rem;
+    align-items: start;
+}
+
+.hist-form {
+    position: sticky;
+    top: 9rem;
+}
+
+/* Uploader */
+.hist-uploader {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.6rem;
+    border: .2rem dashed var(--dash-border);
+    border-radius: 1.2rem;
+    cursor: pointer;
+    font-size: 1.4rem;
+    color: var(--dash-text-soft);
+    transition: border-color .15s ease, background .15s ease;
+}
+
+.hist-uploader:hover {
+    border-color: var(--dash-primary);
+    background: var(--dash-primary-soft);
+}
+
+.hist-uploader i {
+    font-size: 2.2rem;
+    color: var(--dash-primary);
+}
+
+.hist-filelist {
+    margin-top: .4rem;
+}
+
+/* Timeline */
+.hist-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.hist-entrada__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1.4rem;
+    margin-bottom: 1.6rem;
+    border-bottom: .1rem solid var(--dash-border);
+}
+
+.hist-entrada__fecha {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dash-primary);
+    text-transform: capitalize;
+}
+
+.hist-entrada__acciones {
+    display: flex;
+    gap: .6rem;
+}
+
+.hist-entrada__texto {
+    font-size: 1.5rem;
+    line-height: 1.7;
+    color: var(--dash-text);
+}
+
+.hist-entrada__texto p {
+    margin: 0 0 1rem;
+}
+
+.hist-entrada__texto ul,
+.hist-entrada__texto ol {
+    margin: 0 0 1rem;
+    padding-left: 2.2rem;
+}
+
+.hist-entrada__texto img {
+    max-width: 100%;
+    border-radius: .8rem;
+}
+
+/* Adjuntos */
+.hist-adjuntos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.8rem;
+}
+
+.hist-adjunto {
+    position: relative;
+    border: .1rem solid var(--dash-border);
+    border-radius: 1rem;
+    overflow: hidden;
+    background: var(--dash-bg);
+}
+
+.hist-adjunto__link {
+    display: block;
+    color: inherit;
+}
+
+.hist-adjunto__link img {
+    width: 100%;
+    height: 10rem;
+    object-fit: cover;
+    display: block;
+}
+
+.hist-adjunto__pdf {
+    height: 10rem;
+    display: grid;
+    place-items: center;
+    font-size: 3.4rem;
+    color: var(--dash-danger);
+    background: var(--dash-danger-soft);
+}
+
+.hist-adjunto__nombre {
+    display: block;
+    padding: .8rem 1rem;
+    font-size: 1.25rem;
+    color: var(--dash-text-soft);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hist-adjunto__borrar button {
+    position: absolute;
+    top: .6rem;
+    right: .6rem;
+    width: 2.8rem;
+    height: 2.8rem;
+    border: none;
+    border-radius: 50%;
+    background: rgba(31, 42, 55, .65);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+
+.hist-adjunto__borrar button:hover {
+    background: var(--dash-danger);
+}
+
+@media (max-width: 1024px) {
+    .hist {
+        grid-template-columns: 1fr;
+    }
+
+    .hist-form {
+        position: static;
+    }
+}

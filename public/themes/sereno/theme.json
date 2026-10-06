@@ -1,0 +1,12 @@
+{
+    "nombre": "Sereno",
+    "descripcion": "Verdes azulados y turquesa. Transmite calma, equilibrio y confianza.",
+    "primario": "#3b7a86",
+    "secundario": "#9fd6d2",
+    "acento": "#2c5f68",
+    "fondo": "#eef7f6",
+    "superficie": "#ffffff",
+    "texto": "#2f4a4d",
+    "radio": "1.4rem",
+    "fuente": "Lexend"
+}

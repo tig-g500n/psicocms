@@ -1,0 +1,54 @@
+.secciones-lista {
+    display: flex;
+    flex-direction: column;
+}
+
+.seccion-fila {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 1.6rem 0;
+    border-bottom: .1rem solid var(--dash-border);
+}
+
+.seccion-fila:last-child {
+    border-bottom: none;
+}
+
+.seccion-fila__icono {
+    flex-shrink: 0;
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: var(--dash-radius);
+    background: var(--dash-primary-soft);
+    color: var(--dash-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+.seccion-fila__info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+}
+
+.seccion-fila__label {
+    font-size: 1.55rem;
+    font-weight: 600;
+    color: var(--dash-text);
+}
+
+.seccion-fila__desc {
+    font-size: 1.35rem;
+    color: var(--dash-text-soft);
+}
+
+.secciones-acciones {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}

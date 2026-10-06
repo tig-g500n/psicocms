@@ -1,0 +1,12 @@
+{
+    "nombre": "Bosque",
+    "descripcion": "Verdes naturales. Sensación de crecimiento, bienestar y arraigo.",
+    "primario": "#3f7d55",
+    "secundario": "#a7ce9a",
+    "acento": "#2e5e3f",
+    "fondo": "#eef6ef",
+    "superficie": "#ffffff",
+    "texto": "#2c4433",
+    "radio": "1.2rem",
+    "fuente": "Lexend"
+}

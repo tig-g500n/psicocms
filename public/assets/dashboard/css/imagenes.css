@@ -1,0 +1,110 @@
+.imgs__grupo {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    font-size: 1.7rem;
+    color: var(--dash-text);
+    margin-bottom: 1.8rem;
+}
+
+.imgs__grupo i {
+    color: var(--dash-primary);
+}
+
+.imgs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+    gap: 2rem;
+}
+
+.img-slot {
+    border: .1rem solid var(--dash-border);
+    border-radius: var(--dash-radius-lg);
+    overflow: hidden;
+    background: var(--dash-surface);
+    transition: border-color .15s, box-shadow .15s;
+}
+
+.img-slot.is-custom {
+    border-color: var(--dash-primary);
+    box-shadow: 0 0 0 .1rem var(--dash-primary-soft);
+}
+
+.img-slot__preview {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: var(--dash-bg);
+}
+
+.img-slot__preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.img-slot__badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .4rem 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dash-text-soft);
+    background: rgba(255, 255, 255, .92);
+    border-radius: 5rem;
+    box-shadow: 0 .2rem .6rem rgba(0, 0, 0, .12);
+}
+
+.img-slot__badge.is-custom {
+    color: #fff;
+    background: var(--dash-primary);
+}
+
+.img-slot__body {
+    padding: 1.6rem;
+}
+
+.img-slot__title {
+    font-size: 1.6rem;
+    color: var(--dash-text);
+    margin-bottom: .4rem;
+}
+
+.img-slot__desc {
+    font-size: 1.35rem;
+    line-height: 1.5;
+    color: var(--dash-text-soft);
+    margin-bottom: 1.4rem;
+    min-height: 4rem;
+}
+
+.img-slot__acciones {
+    display: flex;
+    gap: .8rem;
+    flex-wrap: wrap;
+}
+
+.img-slot__acciones .btn {
+    cursor: pointer;
+}
+
+.img-slot__form {
+    margin: 0;
+}
+
+.imgs__nota {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    font-size: 1.35rem;
+    color: var(--dash-text-soft);
+    margin-top: 2rem;
+}
+
+.imgs__nota i {
+    color: var(--dash-primary);
+}

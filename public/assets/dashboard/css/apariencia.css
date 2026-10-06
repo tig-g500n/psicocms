@@ -1,0 +1,113 @@
+.apar-intro {
+    font-size: 1.4rem;
+    color: var(--dash-text-soft);
+    margin: -.6rem 0 1.6rem;
+}
+
+.apar-seccion {
+    margin-bottom: 2.2rem;
+}
+
+.apar-label {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--dash-text);
+    margin-bottom: 1rem;
+}
+
+.apar-modos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+}
+
+.apar-modo {
+    cursor: pointer;
+}
+
+.apar-modo__card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+    padding: 1.4rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dash-text-soft);
+    background: var(--dash-bg);
+    border: .2rem solid var(--dash-border);
+    border-radius: var(--dash-radius);
+    transition: .15s;
+}
+
+.apar-modo__card i {
+    font-size: 1.8rem;
+}
+
+.apar-modo input:checked ~ .apar-modo__card {
+    color: var(--dash-primary);
+    border-color: var(--dash-primary);
+    background: var(--dash-primary-soft);
+}
+
+.apar-colores {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+}
+
+.apar-color {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .6rem;
+    cursor: pointer;
+}
+
+.apar-color__swatch {
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.6rem;
+    box-shadow: 0 .2rem .6rem rgba(0, 0, 0, .18);
+    border: .3rem solid transparent;
+    transition: .15s;
+}
+
+.apar-color__swatch i {
+    opacity: 0;
+    transform: scale(.4);
+    transition: .15s;
+}
+
+.apar-color input:checked ~ .apar-color__swatch {
+    border-color: var(--dash-surface);
+    box-shadow: 0 0 0 .3rem var(--dash-primary), 0 .2rem .6rem rgba(0, 0, 0, .2);
+}
+
+.apar-color input:checked ~ .apar-color__swatch i {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.apar-color__name {
+    font-size: 1.15rem;
+    color: var(--dash-text-soft);
+    text-align: center;
+}
+
+.apar-color input:checked ~ .apar-color__name {
+    color: var(--dash-text);
+    font-weight: 600;
+}
+
+@media (max-width: 520px) {
+    .apar-colores {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

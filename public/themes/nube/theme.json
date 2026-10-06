@@ -1,0 +1,12 @@
+{
+    "nombre": "Nube",
+    "descripcion": "Azules cielo y tonos claros. Limpio, profesional y luminoso.",
+    "primario": "#5b8def",
+    "secundario": "#bcd6ff",
+    "acento": "#3a6fd0",
+    "fondo": "#eef4fe",
+    "superficie": "#ffffff",
+    "texto": "#33415c",
+    "radio": "1rem",
+    "fuente": "Lexend"
+}

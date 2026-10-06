@@ -1,0 +1,18 @@
+# ============================================================
+#  Colócalo en la RAÍZ de htdocs con el nombre  .htaccess
+#  Reenvía todas las peticiones a la carpeta public/ de Laravel.
+#  Como todo pasa por public/, los ficheros de la app (.env, config,
+#  vendor, etc.) NO son accesibles directamente por el navegador.
+# ============================================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # (Opcional) Forzar HTTPS. Descomenta estas dos líneas si tienes SSL activo.
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+    # Evita el bucle: si ya estamos dentro de /public/, no reescribas.
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ /public/$1 [L]
+</IfModule>

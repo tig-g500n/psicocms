@@ -1,0 +1,12 @@
+{
+    "nombre": "Aurora",
+    "descripcion": "Lilas y rosas suaves. Un estilo moderno, delicado y luminoso.",
+    "primario": "#8a5cc4",
+    "secundario": "#f0a6c9",
+    "acento": "#6a3fa0",
+    "fondo": "#f7f1fb",
+    "superficie": "#ffffff",
+    "texto": "#43354f",
+    "radio": "1.8rem",
+    "fuente": "Lexend"
+}
